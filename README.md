@@ -1,11 +1,11 @@
 # simple_world4ignition_gazebo
 
 ## World 
-![world](./images/simple_world_img.png)
+<img src="./images/simple_world_img.png" alt="world" width="800"/>
 
 
 ## Robot
-![Robot](./images/robot_img.png)
+<img src="./images/robot_img.png" alt="robot" width="500"/>
 
 
 ## Requirement
