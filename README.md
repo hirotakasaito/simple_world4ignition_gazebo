@@ -10,6 +10,15 @@ Ignition Gazebo 6.16.0
 ## Operating environment
 wsl2 in Windows11
 
+## Sensor type installed on the robot
+2D-Lidar
+
+Imu
+
+Wheel Odometry
+
+RGB-camera
+
 ## Usage
 
 ### Install 
