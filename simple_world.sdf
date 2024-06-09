@@ -14,36 +14,7 @@
       <render_engine>ogre2</render_engine>
     </plugin>
     <plugin name='ignition::gazebo::systems::Contact' filename='ignition-gazebo-contact-system'/>
-    <plugin name='ignition::gazebo::systems::TriggeredPublisher' filename='ignition-gazebo-triggered-publisher-system'>
-      <input type='ignition.msgs.Int32' topic='/keyboard/keypress'>
-        <match field='data'>16777235</match>
-      </input>
-      <output type='ignition.msgs.Twist' topic='/cmd_vel'>linear: {x: 0.5}, angular: {z: 0.0}</output>
-    </plugin>
-    <plugin name='ignition::gazebo::systems::TriggeredPublisher' filename='ignition-gazebo-triggered-publisher-system'>
-      <input type='ignition.msgs.Int32' topic='/keyboard/keypress'>
-        <match field='data'>16777237</match>
-      </input>
-      <output type='ignition.msgs.Twist' topic='/cmd_vel'>linear: {x: -0.5}, angular: {z: 0.0}</output>
-    </plugin>
-    <plugin name='ignition::gazebo::systems::TriggeredPublisher' filename='ignition-gazebo-triggered-publisher-system'>
-      <input type='ignition.msgs.Int32' topic='/keyboard/keypress'>
-        <match field='data'>16777236</match>
-      </input>
-      <output type='ignition.msgs.Twist' topic='/cmd_vel'>linear: {x: 0.0}, angular: {z: -0.5}</output>
-    </plugin>
-    <plugin name='ignition::gazebo::systems::TriggeredPublisher' filename='ignition-gazebo-triggered-publisher-system'>
-      <input type='ignition.msgs.Int32' topic='/keyboard/keypress'>
-        <match field='data'>16777234</match>
-      </input>
-      <output type='ignition.msgs.Twist' topic='/cmd_vel'>linear: {x: 0.0}, angular: {z: 0.5}</output>
-    </plugin>
-    <plugin name='ignition::gazebo::systems::TriggeredPublisher' filename='ignition-gazebo-triggered-publisher-system'>
-      <input type='ignition.msgs.Boolean' topic='/wall/touched'>
-        <match>data: true</match>
-      </input>
-      <output type='ignition.msgs.Twist' topic='/cmd_vel'>linear: {x: 0.0}, angular: {z: 0.0}</output>
-    </plugin>
+
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -52,6 +23,7 @@
       <background>0.7 0.7 0.7 1</background>
       <shadows>true</shadows>
     </scene>
+
     <model name='ground_plane'>
       <static>true</static>
       <link name='link'>
@@ -101,7 +73,7 @@
       <pose>0 0 0 0 -0 0</pose>
       <self_collide>false</self_collide>
     </model>
-    <model name='vehicle_blue' canonical_link='chassis'>
+    <model name='f1d2' canonical_link='chassis'>
       <pose>0 0 0 0 0 0</pose>
       <link name='chassis'>
         <pose>0.5 0 0.4 0 -0 0</pose>
@@ -371,7 +343,7 @@
         <sensor name='gpu_lidar' type='gpu_lidar'>
 
           <!-- <pose>0.8 0 0.5 0 -0 0</pose> -->
-          <topic>lidar</topic>
+          <topic>scan</topic>
           <update_rate>10</update_rate>
           <enable_metrics>false</enable_metrics>
           <lidar>
@@ -379,8 +351,8 @@
               <horizontal>
                 <samples>640</samples>
                 <resolution>1</resolution>
-                <min_angle>-1.39626</min_angle>
-                <max_angle>1.39626</max_angle>
+                <min_angle>-2.355</min_angle>
+                <max_angle>2.355</max_angle>
               </horizontal>
               <vertical>
                 <samples>1</samples>
@@ -391,7 +363,7 @@
             </scan>
             <range>
               <min>0.08</min>
-              <max>10</max>
+              <max>30</max>
               <resolution>0.01</resolution>
             </range>
             <noise>
@@ -453,7 +425,7 @@
           </surface>
         </collision>
         <sensor name='camera' type='camera'>
-          <topic>/image_raw</topic>
+          <topic>/camera_front/image_raw</topic>
           <update_rate>10</update_rate>
           <enable_metrics>false</enable_metrics>
           <camera name='__default__'>
@@ -499,7 +471,7 @@
           </camera>
         </sensor>
         <sensor name='depth_camera' type='depth_camera'>
-          <topic>depth_camera/image_raw</topic>
+          <topic>/camera_front/depth_image_raw</topic>
           <update_rate>10</update_rate>
           <enable_metrics>false</enable_metrics>
           <camera name='__default__'>
