@@ -1,11 +1,15 @@
 # simple_world4ignition_gazebo
 
 ## World 
-<img src="./images/simple_world_img.png" alt="world" width="400"/>
+<p align="center">
+    <img src="./images/simple_world_img.png" alt="world" width="400"/>
+</p>
 
 
 ## Robot
+<p align="center">
 <img src="./images/robot_img.png" alt="robot" width="500"/>
+</p>
 
 
 ## Requirement
