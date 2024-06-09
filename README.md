@@ -1,7 +1,7 @@
 # simple_world4ignition_gazebo
 
 ## World 
-<img src="./images/simple_world_img.png" alt="world" width="800"/>
+<img src="./images/simple_world_img.png" alt="world" width="400"/>
 
 
 ## Robot
