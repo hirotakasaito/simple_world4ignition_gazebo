@@ -15,7 +15,7 @@
 ## Requirement
 ubuntu22.04
 
-ROS2 iron
+ROS2 Humble
 
 Ignition Gazebo 6.16.0
 
@@ -44,5 +44,8 @@ RGB-camera
 
 ### Operate the robot from the keyboard
 `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
+
+### All launch
+`ros2 launch ./all_launch.py`
 
 
