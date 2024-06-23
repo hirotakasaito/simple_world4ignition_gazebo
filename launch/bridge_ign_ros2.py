@@ -16,8 +16,17 @@ def generate_launch_description():
                 '/model/f1d2/tf@tf2_msgs/msg/TFMessage@ignition.msgs.Pose_V',
             ],
             remappings=[
-                ('/model/f1d2/odometry', '/odometry'),
+                ('/model/f1d2/odometry', '/odom'),
                 ('/model/f1d2/tf', '/tf')
             ],
-        )
+        ),
+
+        Node(package = "tf2_ros", 
+            executable = "static_transform_publisher",
+            arguments = ["0", "0", "-0.4", "0", "0", "0", "base_link", "base_footprint"]
+        ),
+
+        Node(package = "tf2_ros", 
+            executable = "static_transform_publisher",
+            arguments = ["0", "0", "0.0", "0", "0", "0", "lidar_box", "f1d2/lidar_box/gpu_lidar"])
     ])
